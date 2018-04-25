@@ -1,0 +1,3 @@
+include 'gen-java-server'
+
+rootProject.name = 'xrpc-proto'
