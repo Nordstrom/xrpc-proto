@@ -43,7 +43,7 @@ public interface SomeServiceXrpc implements Service {
       SomeRequest input = request.body(SomeRequest.class);
       SomeResponse output = someMethod(input);
       return request.ok(output);
-    }
+    });
   }
 }      
 ```
