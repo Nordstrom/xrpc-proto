@@ -16,7 +16,7 @@
 
 /*
  * NOTICE: Modified from gRPC-java java_generator.cpp found at:
- * https://github.com/grpc/grpc-java/blob/master/compiler/src/java_plugin/cpp/java_generator.cpp
+ * https://github.com/grpc/grpc-java/blob/8d3d26dda109d70467092b15c980a2bbfffc6e55/compiler/src/java_plugin/cpp/java_generator.cpp
  */
 
 #include "java_generator.h"

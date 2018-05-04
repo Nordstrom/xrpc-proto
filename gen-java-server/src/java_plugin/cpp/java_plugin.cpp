@@ -16,7 +16,7 @@
 
 /*
  * NOTICE: Modified from gRPC-java java_plugin.cpp found at:
- * https://github.com/grpc/grpc-java/blob/master/compiler/src/java_plugin/cpp/java_plugin.cpp
+ * https://github.com/grpc/grpc-java/blob/dba2323585061f8634e37de7c757330826567a9d/compiler/src/java_plugin/cpp/java_plugin.cpp
  */
 
 // Generates Java gRPC service interface out of Protobuf IDL.
