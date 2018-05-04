@@ -31,6 +31,8 @@ It produces the following java interface:
 ```java
 package com.nordstrom.somepackage;
 
+import com.nordstrom.xrpc.server.Service;
+
 public interface SomeServiceXrpc implements Service {
   
   SomeResponse someMethod(SomeRequest input);
@@ -73,10 +75,3 @@ $ protoc --plugin=protoc-gen-xrpc-java=build/exe/java_plugin/protoc-gen-xrpc-jav
   --grpc-java_out="$OUTPUT_FILE" --proto_path="$DIR_OF_PROTO_FILE" "$PROTO_FILE"
 ```
 
-## Installing the codegen to Maven local repository
-This will compile a codegen and put it under your ``~/.m2/repository``. This
-will make it available to any build tool that pulls codegens from Maven
-repostiories.
-```
-$ ../gradlew install
-```
