@@ -28,7 +28,6 @@ public interface SimpleServiceXrpc extends Service {
    */
   SimpleResponse simpleCall(SimpleRequest input);
 
-
   /** Get defined routes for this service. */
   @Override
   default Routes routes() {

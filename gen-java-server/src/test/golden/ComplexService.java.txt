@@ -44,7 +44,6 @@ public interface ComplexServiceXrpc extends Service {
    */
   DifferentResponse doSomethingCompletelyDifferent(DifferentRequest input);
 
-
   /** Get defined routes for this service. */
   @Override
   default Routes routes() {

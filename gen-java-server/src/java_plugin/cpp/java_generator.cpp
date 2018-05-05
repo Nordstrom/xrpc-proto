@@ -296,7 +296,6 @@ static void PrintRoutes(const ServiceDescriptor *service,
   (*vars)["service_name"] = service->name();
 
   p->Print(
-      "\n"
       "/** Get defined routes for this service. */\n"
       "@Override\n"
       "default Routes routes() {\n");
