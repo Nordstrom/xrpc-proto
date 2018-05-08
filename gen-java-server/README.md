@@ -31,7 +31,13 @@ It produces the following java interface:
 ```java
 package com.nordstrom.somepackage;
 
+import static com.nordstrom.somepackage.SomeRequest;
+import static com.nordstrom.somepackage.SomeResponse;
+
+import com.nordstrom.xrpc.server.RouteBuilder;
+import com.nordstrom.xrpc.server.Routes;
 import com.nordstrom.xrpc.server.Service;
+import javax.annotation.Generated;
 
 public interface SomeServiceXrpc implements Service {
   
