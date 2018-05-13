@@ -1,8 +1,20 @@
 version: 2
 jobs:
-  build:
+# x86_32 {
+#       architecture "x86"
+#     }
+#     x86_64 {
+#       architecture "x86_64"
+#     }
+#     ppcle_64 {
+#       architecture "ppcle_64"
+#     }
+#     aarch_64 {
+#       architecture "aarch_64"
+#     }
+  build_linux_x64:
     docker:
-      - image: nordstrom/java-protoc
+      - image: nordstrom/java-protoc:linux-x64
 
     working_directory: ~/repo
 
@@ -29,7 +41,45 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle check
+      - run: gradle check buildArtifacts
 
+  build_linux_x32:
+    docker:
+      - image: nordstrom/java-protoc:linux-x64
 
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "build.gradle" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: gradle resolveDependencies
+
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      # run tests!
+      - run: gradle check buildArtifacts
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_linux_x32
+      - build_linux_x64
+      # - ppcl_64
+      # - aarch_64
 
